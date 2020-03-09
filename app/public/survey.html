@@ -209,8 +209,14 @@
 
             alert("Finding you a friend")
 
-            $.post("/api/friends", newFriend)
+            // yourFriend();
 
+            // $.post("/api/friends", newFriend)
+            $.post("/api/friends", newFriend, function (data) {
+                console.log(data)
+                // console.log(data.name)
+                
+            })
             
             $("#name").val("");
             $("#pic").val("");
@@ -225,8 +231,12 @@
             $("#q9").val("1 (Strongly Disagree)");
             $("#q10").val("1 (Strongly Disagree)");
 
-            
+
         });
+
+        // function yourFriend() {
+
+        // }
 
     </script>
 </body>
