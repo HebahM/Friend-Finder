@@ -234,68 +234,73 @@
             var name = $("#name").val();
             var photo = $("#pic").val();
 
-            var scores = []
-            scores.push(parseInt($("#q1").val()))
-            scores.push(parseInt($("#q2").val()))
-            scores.push(parseInt($("#q3").val()))
-            scores.push(parseInt($("#q4").val()))
-            scores.push(parseInt($("#q5").val()))
-            scores.push(parseInt($("#q6").val()))
-            scores.push(parseInt($("#q7").val()))
-            scores.push(parseInt($("#q8").val()))
-            scores.push(parseInt($("#q9").val()))
-            scores.push(parseInt($("#q10").val()))
-
-            var newFriend = {
-                name: name,
-                photo: photo,
-                scores: scores
+            if ((name == "") || (photo == "")) {
+                alert("Please fill in all required fields")
             }
+            else {
 
-            // console.log("scores array: "+scores);
-            console.log(newFriend)
+                var scores = []
+                scores.push(parseInt($("#q1").val()))
+                scores.push(parseInt($("#q2").val()))
+                scores.push(parseInt($("#q3").val()))
+                scores.push(parseInt($("#q4").val()))
+                scores.push(parseInt($("#q5").val()))
+                scores.push(parseInt($("#q6").val()))
+                scores.push(parseInt($("#q7").val()))
+                scores.push(parseInt($("#q8").val()))
+                scores.push(parseInt($("#q9").val()))
+                scores.push(parseInt($("#q10").val()))
 
-            // alert("Finding you a friend")
+                var newFriend = {
+                    name: name,
+                    photo: photo,
+                    scores: scores
+                }
 
+                // console.log("scores array: "+scores);
+                console.log(newFriend)
 
-
-            // $.post("/api/friends", newFriend)
-            $.post("/api/friends", newFriend, function (data) {
-                // console.log(data)
-                console.log("Your new best friend is " + data.name)
-                console.log("Check out a picture here " + data.photo)
-                $("#myModal").modal()
-                $(".modal-title").text("Your new best friend is " + data.name)
-                $(".modal-pic").attr("src", data.photo)
-
-                // newBestie(data.name, data.photo)
-            })
-
-
-
-            // function newBestie(name, picture){
-            //     $(".modal-title").text("Your new best friend is " + name)
-            //     $(".modal-body").html("<img>")
-            //     $(".modal-body").attr("src", picture)
-            // }
-
-
-            $("#name").val("");
-            $("#pic").val("");
-            $("#q1").val("1 (Strongly Disagree)");
-            $("#q2").val("1 (Strongly Disagree)");
-            $("#q3").val("1 (Strongly Disagree)");
-            $("#q4").val("1 (Strongly Disagree)");
-            $("#q5").val("1 (Strongly Disagree)");
-            $("#q6").val("1 (Strongly Disagree)");
-            $("#q7").val("1 (Strongly Disagree)");
-            $("#q8").val("1 (Strongly Disagree)");
-            $("#q9").val("1 (Strongly Disagree)");
-            $("#q10").val("1 (Strongly Disagree)");
+                // alert("Finding you a friend")
 
 
 
+                // $.post("/api/friends", newFriend)
+                $.post("/api/friends", newFriend, function (data) {
+                    // console.log(data)
+                    console.log("Your new best friend is " + data.name)
+                    console.log("Check out a picture here " + data.photo)
+                    $("#myModal").modal()
+                    $(".modal-title").text("Your new best friend is " + data.name)
+                    $(".modal-pic").attr("src", data.photo)
 
+                    // newBestie(data.name, data.photo)
+                })
+
+
+
+                // function newBestie(name, picture){
+                //     $(".modal-title").text("Your new best friend is " + name)
+                //     $(".modal-body").html("<img>")
+                //     $(".modal-body").attr("src", picture)
+                // }
+
+
+                $("#name").val("");
+                $("#pic").val("");
+                $("#q1").val("1 (Strongly Disagree)");
+                $("#q2").val("1 (Strongly Disagree)");
+                $("#q3").val("1 (Strongly Disagree)");
+                $("#q4").val("1 (Strongly Disagree)");
+                $("#q5").val("1 (Strongly Disagree)");
+                $("#q6").val("1 (Strongly Disagree)");
+                $("#q7").val("1 (Strongly Disagree)");
+                $("#q8").val("1 (Strongly Disagree)");
+                $("#q9").val("1 (Strongly Disagree)");
+                $("#q10").val("1 (Strongly Disagree)");
+
+
+
+            }
         });
 
 
